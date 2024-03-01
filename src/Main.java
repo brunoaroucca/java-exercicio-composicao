@@ -3,10 +3,8 @@ import entities.Order;
 import entities.OrderItem;
 import entities.Product;
 import entities.enums.OrderStatus;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
@@ -58,10 +56,15 @@ public class Main {
         System.out.println(" ");
         System.out.println("Order moment: "+ sdfHours.format(order.getMoment()));
         System.out.println("Order status: "+ order.getStatus());
-        System.out.println("Client: "+ order.getClient().getName() + " - (" + sdf.format(order.getClient().getBirthDate()) + ") - " + order.getClient().getEmail() );
+        System.out.println("Client: "+ order.getClient().getName() + " - ("
+                + sdf.format(order.getClient().getBirthDate()) + ") - "
+                + order.getClient().getEmail() );
         System.out.println("Order items: ");
+
         for(OrderItem item : order.getItems()){
-            System.out.print(item.getProduct().getName() + ", " + item.getProduct().getPrice() + ", Quantity: " + item.getQuantity() + ", Subtotal:" + item.subTotal() + "\n");
+            System.out.print(item.getProduct().getName() + ", "
+                    + item.getProduct().getPrice() + ", Quantity: "
+                    + item.getQuantity() + ", Subtotal:" + item.subTotal() + "\n");
         }
 
         System.out.println("Total Price: " + order.total());
